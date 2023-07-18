@@ -1,0 +1,60 @@
+{
+    "name": "quiz-player-app",
+    "description": "Multiplayer quiz app built on Salesforce technology (player app)",
+    "version": "3.0.1",
+    "private": true,
+    "author": "pozil",
+    "bugs": "https://github.com/developerforce/quiz-player-app/issues",
+    "dependencies": {
+        "@babel/core": "^7.18.2",
+        "dotenv": "^16.0.1",
+        "jsforce": "^1.11.0",
+        "lwc": "^2.14.1",
+        "lwr": "^0.7.6",
+        "normalize.css": "^8.0.1",
+        "ws": "^8.6.0"
+    },
+    "devDependencies": {
+        "@lwc/eslint-plugin-lwc": "^1.2.1",
+        "@lwc/jest-preset": "^11.4.0",
+        "@salesforce/eslint-config-lwc": "^3.3.0",
+        "@salesforce/eslint-plugin-lightning": "^1.0.0",
+        "eslint": "^8.17.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jest": "^26.5.3",
+        "husky": "^8.0.1",
+        "jest": "^28.1.1",
+        "lint-staged": "^13.0.1",
+        "prettier": "^2.6.2"
+    },
+    "engines": {
+        "node": "14.18.1"
+    },
+    "homepage": "https://github.com/developerforce/quiz-player-app",
+    "keywords": [
+        "lwc"
+    ],
+    "license": "CC0-1.0",
+    "lint-staged": {
+        "**/*.{css,html,js,json,md,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/modules/**/*.js": [
+            "eslint"
+        ]
+    },
+    "repository": "pozil/quiz",
+    "scripts": {
+        "start": "MODE=prod node src/server/server.js",
+        "dev": "node src/server/server.js",
+        "lint": "eslint ./src/**/*.js",
+        "prettier": "prettier --write '**/*.{css,html,js,json,md,yaml,yml}'",
+        "prettier:verify": "prettier --list-different '**/*.{css,html,js,json,md,yaml,yml}'",
+        "preinstall": "rm -fr src/client/assets/dist",
+        "postinstall": "husky install && mkdir -p src/client/assets/dist && cp node_modules/normalize.css/normalize.css src/client/assets/dist/.",
+        "precommit": "lint-staged"
+    },
+    "volta": {
+        "node": "14.18.1"
+    }
+}

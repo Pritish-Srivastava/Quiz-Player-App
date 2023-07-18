@@ -1,0 +1,9 @@
+# Jest coverage
+coverage/
+
+# Default build folder
+dist/
+__lwr_cache__
+
+# Default assets folder
+src/client/assets
